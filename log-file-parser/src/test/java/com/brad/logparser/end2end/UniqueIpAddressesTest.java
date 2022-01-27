@@ -1,10 +1,10 @@
-package com.brad.logparser.interview;
+package com.brad.logparser.end2end;
 
+import com.brad.logparser.testing.TestFiles;
 import org.junit.Test;
 
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Set;
 
 import static com.brad.logparser.ipaddress.UniqueIpAddressReport.uniqueIpAddressesFromFile;
@@ -17,7 +17,7 @@ public class UniqueIpAddressesTest {
 
     @Test
     public void shouldReturnEightUniqueValidIpAddresses_givenInterviewSampleFile() throws Exception {
-        Path path = getFilePathFor("programming-task-example-data.log");
+        Path path = TestFiles.getPathFor("programming-task-example-data.log");
         Set<String> uniqueIps = uniqueIpAddressesFromFile(path);
         assertThat(uniqueIps, containsInAnyOrder(
                 "168.41.191.34",
@@ -32,7 +32,7 @@ public class UniqueIpAddressesTest {
 
     @Test
     public void shouldReturnTwoUniqueIpAddresses_givenThreeIpAddressesWhereTwoAreTheSame() throws Exception {
-        Path path = getFilePathFor("two-unique.log");
+        Path path = TestFiles.getPathFor("ipaddress/two-unique.log");
         Set<String> uniqueIps = uniqueIpAddressesFromFile(path);
         assertThat(uniqueIps, containsInAnyOrder(
                 "177.71.128.21",
@@ -42,32 +42,28 @@ public class UniqueIpAddressesTest {
 
     @Test
     public void shouldReturnEmptySet_givenEmptyFile() throws Exception {
-        Path path = getFilePathFor("empty.log");
+        Path path = TestFiles.getPathFor("empty.log");
         Set<String> uniqueIps = uniqueIpAddressesFromFile(path);
         assertThat(uniqueIps, is(EMPTY_SET));
     }
 
     @Test
     public void shouldReturnEmptySet_givenFileDoesNotContainAnIpAddress() throws Exception {
-        Path path = getFilePathFor("no-ip-address.log");
+        Path path = TestFiles.getPathFor("ipaddress/no-ip-address.log");
         Set<String> uniqueIps = uniqueIpAddressesFromFile(path);
         assertThat(uniqueIps, is(EMPTY_SET));
     }
 
     @Test
     public void shouldReturnOneIpAddress_ignoringBlankLines_givenFileContainsOneIpAddress() throws Exception {
-        Path path = getFilePathFor("blank-lines.log");
+        Path path = TestFiles.getPathFor("blank-lines.log");
         Set<String> uniqueIps = uniqueIpAddressesFromFile(path);
         assertThat(uniqueIps, containsInAnyOrder("177.71.128.21"));
     }
 
     @Test(expected = NoSuchFileException.class)
     public void shouldThrowException_givenFileDoesNotExist() throws Exception {
-        Path path = getFilePathFor("xxx");
+        Path path = TestFiles.getPathFor("xxx");
         uniqueIpAddressesFromFile(path);
-    }
-
-    private Path getFilePathFor(String filename) {
-        return Paths.get("src","test", "resources", filename);
     }
 }

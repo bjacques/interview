@@ -5,6 +5,6 @@ import java.nio.file.Paths;
 
 public class TestFiles {
     public static Path getPathFor(String filename) {
-        return Paths.get("src","test", "resources", filename);
+        return Paths.get("src","test", "resources", "end2end", filename);
     }
 }

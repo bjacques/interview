@@ -32,7 +32,7 @@ public class UniqueIpAddressesTest {
 
     @Test
     public void shouldReturnTwoUniqueIpAddresses_givenThreeIpAddressesWhereTwoAreTheSame() throws Exception {
-        Path path = TestFiles.getPathFor("two-unique.log");
+        Path path = TestFiles.getPathFor("ipaddress/two-unique.log");
         Set<String> uniqueIps = uniqueIpAddressesFromFile(path);
         assertThat(uniqueIps, containsInAnyOrder(
                 "177.71.128.21",
@@ -49,7 +49,7 @@ public class UniqueIpAddressesTest {
 
     @Test
     public void shouldReturnEmptySet_givenFileDoesNotContainAnIpAddress() throws Exception {
-        Path path = TestFiles.getPathFor("no-ip-address.log");
+        Path path = TestFiles.getPathFor("ipaddress/no-ip-address.log");
         Set<String> uniqueIps = uniqueIpAddressesFromFile(path);
         assertThat(uniqueIps, is(EMPTY_SET));
     }

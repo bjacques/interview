@@ -1,4 +1,4 @@
-package com.brad.logparser.interview;
+package com.brad.logparser.end2end;
 
 public class MostActiveIpAddressesTest {
 }

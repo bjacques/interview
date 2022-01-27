@@ -2,6 +2,7 @@ package com.brad.logparser;
 
 import com.brad.logparser.ipaddress.MostActiveIpAddressReport;
 import com.brad.logparser.ipaddress.UniqueIpAddressReport;
+import com.brad.logparser.url.MostVisitedUrlsReport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +17,7 @@ public class Main {
         var filepath = Path.of(args[0]);
         UniqueIpAddressReport.uniqueIpAddressesFromFile(filepath);
         MostActiveIpAddressReport.mostActiveIpAddressesFromFile(filepath);
+        MostVisitedUrlsReport.mostVisitedUrlsFromFile(filepath);
         logger.info("Done");
     }
 }
