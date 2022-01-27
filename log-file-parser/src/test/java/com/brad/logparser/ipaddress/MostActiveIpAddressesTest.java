@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 public class MostActiveIpAddressesTest {
 
     @Test
-    public void returnsTop3MostActiveIpAddress_givenInterviewSampleFile() throws Exception {
+    public void shouldReturnTop3MostActiveIpAddress_givenInterviewSampleFile() throws Exception {
         Path path = TestFiles.getPathFor("programming-task-example-data.log");
         List<IpAddressCount> top3 = mostActiveIpAddressesFromFile(path);
         assertThat(top3, contains(

@@ -1,4 +1,4 @@
-package com.brad.logparser.extract;
+package com.brad.logparser.ipaddress;
 
 import com.brad.logparser.ipaddress.IpAddressLineParser;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class LineParserTest {
+public class IpAddressLineParserTest {
 
     @Test
     public void returnIpAddress_givenIpAddressValid() {

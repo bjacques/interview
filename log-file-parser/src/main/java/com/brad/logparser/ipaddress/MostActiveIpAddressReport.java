@@ -34,7 +34,7 @@ public class MostActiveIpAddressReport {
                     .map(IpAddressLineParser::extractIpAddress)
                     .filter(ip -> !ip.isBlank())
                     .collect(groupingByConcurrent(identity(), counting()));
-            log.info("Collected {} map entries");
+            log.info("Collected {} map entries", ips.size());
             top = ips.entrySet().stream()
                     .sorted(byHighestCount)
                     .limit(topCount)

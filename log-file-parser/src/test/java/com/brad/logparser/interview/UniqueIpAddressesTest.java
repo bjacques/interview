@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Set;
 
-import static com.brad.logparser.LogFileReportRunner.uniqueIpAddressesFromFile;
+import static com.brad.logparser.ipaddress.UniqueIpAddressReport.uniqueIpAddressesFromFile;
 import static java.util.Collections.EMPTY_SET;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
