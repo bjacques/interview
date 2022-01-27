@@ -1,5 +1,6 @@
 package com.brad.logparser.extract;
 
+import com.brad.logparser.ipaddress.IpAddressLineParser;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -9,37 +10,37 @@ public class LineParserTest {
 
     @Test
     public void returnIpAddress_givenIpAddressValid() {
-        var ip = LineParser.extractIpAddress("127.0.0.1");
+        var ip = IpAddressLineParser.extractIpAddress("127.0.0.1");
         assertThat(ip, is("127.0.0.1"));
     }
 
     @Test
     public void returnEmptyString_givenIpAddressIsNotValid_doubleZero() {
-        var invalidIp = LineParser.extractIpAddress("50.112.00.11");
+        var invalidIp = IpAddressLineParser.extractIpAddress("50.112.00.11");
         assertThat(invalidIp, is(""));
     }
 
     @Test
     public void returnEmptyString_givenIpAddressIsNotValid_biggerThan255() {
-        var invalidIp = LineParser.extractIpAddress("300.0.0.1");
+        var invalidIp = IpAddressLineParser.extractIpAddress("300.0.0.1");
         assertThat(invalidIp, is(""));
     }
 
     @Test
     public void returnIpAddress_fromFrontOfString() {
-        var ip = LineParser.extractIpAddress("192.168.0.1 abc");
+        var ip = IpAddressLineParser.extractIpAddress("192.168.0.1 abc");
         assertThat(ip, is("192.168.0.1"));
     }
 
     @Test
     public void returnEmptyString_givenIpAddressIsNotStartOfLine() {
-        var ip = LineParser.extractIpAddress("abc 192.168.0.1");
+        var ip = IpAddressLineParser.extractIpAddress("abc 192.168.0.1");
         assertThat(ip, is(""));
     }
 
     @Test
     public void returnEmptyString_givenNull() {
-        var ip = LineParser.extractIpAddress(null);
+        var ip = IpAddressLineParser.extractIpAddress(null);
         assertThat(ip, is(""));
     }
 }

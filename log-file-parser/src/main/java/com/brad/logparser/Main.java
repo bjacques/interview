@@ -1,5 +1,6 @@
 package com.brad.logparser;
 
+import com.brad.logparser.ipaddress.UniqueIpAddressReport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +13,8 @@ public class Main {
         logger.info("Starting...");
         // validate args
         var filepath = Path.of(args[0]);
-        LogFileReportRunner.uniqueIpAddressesFromFile(filepath);
+        UniqueIpAddressReport.uniqueIpAddressesFromFile(filepath);
+        UniqueIpAddressReport.uniqueIpAddressesFromFile(filepath);
         logger.info("Done");
     }
 }
