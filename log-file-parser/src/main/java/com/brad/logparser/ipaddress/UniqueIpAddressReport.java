@@ -18,7 +18,7 @@ public class UniqueIpAddressReport {
         Set<String> ips;
         try (var lines = Files.lines(path)) {
             ips = lines
-//                    .parallel()   // alternative: https://stackoverflow.com/questions/21163108/custom-thread-pool-in-java-8-parallel-stream
+                    .parallel()
                     .map(IpAddressLineParser::extractIpAddress)
                     .filter(ip -> !ip.isBlank())
                     .collect(toSet());

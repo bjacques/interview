@@ -13,8 +13,9 @@ Maven will create an uber-jar in the target directory that is referred to by the
 
 Execute the following from the root of this git repo 
 ```
-mvn install
-./src/main/script/run.sh /some/where/example-data.log
+$ mvn install
+$ chmod +x ./src/main/script/run.sh
+$ ./src/main/script/run.sh /some/where/example-data.log
 ```
 
 ### To execute from your IDE
